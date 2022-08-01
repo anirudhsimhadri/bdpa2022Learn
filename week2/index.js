@@ -63,12 +63,27 @@ console.log(newArrayArray)
 // console.log(averageAge)
 
 const myFunction = () => {
+  const averageAge = employees.reduce((acc, employee) => {
+    return acc+employee.age
+  }, 0) / employees.length
   
+  
+  const titleDistribution = employees.reduce((acc, employee) => {
+    const title = employee.title
+    const prevNumWithTitle = acc[title] ?? 0
+    
+    
+    return {
+      ...acc,
+      [title]: prevNumWithTitle + 1
+    }
+  }, {})
 
-  return () => console.log('Hello')
+  return [ 'hello', 'goodbye' ]
 }
 
-console.log(myFunction()())
+console.log(myFunction())
+
 
 
 // every
